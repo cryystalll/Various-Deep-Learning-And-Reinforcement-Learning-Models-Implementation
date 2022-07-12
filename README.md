@@ -18,7 +18,7 @@
 bonus的部分，我將原本的訓練資料拆成x_train與x_val, y_val,與y_train，用來驗證model的 accuracy。
 
 ## 2. CNN Cancer Detect
-## Project Detect Cancer from Patiant's Lung Image
+## Project Detect Cancer from Patients' Lungs Images
 ![Variable Declaration](/mlimg/cnn.png)
 ## Report
 * Basic:
