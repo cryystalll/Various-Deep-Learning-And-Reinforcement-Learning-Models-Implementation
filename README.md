@@ -6,8 +6,8 @@
 ## BackPropogation Algorithm Implementation
 ![Variable Declaration](/mlimg/backp.jpeg)
 ## Report
-* Basic: *
-一開始在寫initialize parameter的部分時，不太懂為什麼要用 HE initialization，後來才發現它 跟準確率有很大的關係，這次作業從一開始就使用到大量的numpy array，也花了一些時間去 熟悉語法的部分。在做activation funtion layer時，也想了一下該怎麼用比較漂亮的寫法寫條 件判斷array中個別的元素，才能避免exponential overflow。
+* Basic:
+* 一開始在寫initialize parameter的部分時，不太懂為什麼要用 HE initialization，後來才發現它 跟準確率有很大的關係，這次作業從一開始就使用到大量的numpy array，也花了一些時間去 熟悉語法的部分。在做activation funtion layer時，也想了一下該怎麼用比較漂亮的寫法寫條 件判斷array中個別的元素，才能避免exponential overflow。
 在L model forward中，將(wa+b)傳回linear activation forward，用sigmod讓資料介於0與1之間 來實作binary classifier，要特別注意sigmoid需要用stable function判斷大於0或小於0的情況來 避免exponential overflow。
 一開始dimension跟node設比較大，但發現太多node反而cost變高，還有試過各種learning rate，發現0.01下降速度最快;將iteration次數慢慢調成10000，就可以達到很好的效果了。
 將basic的部分一步一步時做完後即對整個neutral network的運作原理有更深入的了解。從一 開始初始化參數，接著跟將x跟權重相乘向前傳遞做liner forward。中間有三種activation function layer，分別為sigmoid, softmax, relu三種處理資料的函數，在linear activation forward 向前傳遞資料。中間會計算cost，因為在稍後的backpropogation中，cost會扮演重要的角色， 也是多層neutral network的精神所在。接著，在傳回過程中，我們將cost傳回並求得sigma， 與hidden unit的之間的權重相乘，再一路傳回最底層，將學習到的資訊與learning rate相乘更 新權重，用gradient decendent的方法越來越逼進目標結果。接著嘗試不同dimension，發現其 實不是越高越好，經過3.中的測試，如果太多layer node的話效能會變差，所以設定dimension 為[4,1]，learning rate = 0.01，iteration 數 = 10000，最後達到1.0的accuracy。
