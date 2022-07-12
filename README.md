@@ -6,7 +6,7 @@
 ## BackPropogation Algorithm Implementation
 ![Variable Declaration](/mlimg/backp.jpeg)
 ## Report
-* Basic:
+* Basic: *
 一開始在寫initialize parameter的部分時，不太懂為什麼要用 HE initialization，後來才發現它 跟準確率有很大的關係，這次作業從一開始就使用到大量的numpy array，也花了一些時間去 熟悉語法的部分。在做activation funtion layer時，也想了一下該怎麼用比較漂亮的寫法寫條 件判斷array中個別的元素，才能避免exponential overflow。
 在L model forward中，將(wa+b)傳回linear activation forward，用sigmod讓資料介於0與1之間 來實作binary classifier，要特別注意sigmoid需要用stable function判斷大於0或小於0的情況來 避免exponential overflow。
 一開始dimension跟node設比較大，但發現太多node反而cost變高，還有試過各種learning rate，發現0.01下降速度最快;將iteration次數慢慢調成10000，就可以達到很好的效果了。
@@ -74,7 +74,7 @@ Build decision tree:
 ## Advanced method of LSTM
 ![Variable Declaration](/mlimg/linear.jpeg)
 ## Report
-* Basic prediction:
+* Basic prediction: *
 Regression的部分我兩兩種OLS,gradient都有做並分別去train，再選lost必較⼩小的model來來實際丟資料 進去做預測，最後我選擇OLS因為loss較⼩小。 ⼀一開始splitdata，我也分別測試了了不同資料數量量丟下去train會得到的lost的不同，發現⽤用10/14號前 60天的資料訓練比只⽤用最後30筆或⽤用到最後90筆的效能還要更更好，所以最後決定⽤用 input_datalist[129:189]#前60天 來來做，最後再⽤用前20天的資料當validation來來測試。
 Ordinary Least Square Solution:
 先將我引入的x data轉成numpy形式，並添加⼀一⾏行行都是1的vector，因為w會有k+1項，必須要符合那
