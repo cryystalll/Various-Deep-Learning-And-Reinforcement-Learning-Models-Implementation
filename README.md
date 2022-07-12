@@ -21,4 +21,5 @@
 ## 5. Stockprice Prediction
 ## Basic method of Linear Regression 
 ## Advanced method of LSTM
+![Variable Declaration](/mlimg/stock_price_prediction_2022.png)
 ![Variable Declaration](/mlimg/linear.jpeg)
