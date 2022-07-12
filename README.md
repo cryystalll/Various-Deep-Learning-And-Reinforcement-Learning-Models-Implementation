@@ -82,7 +82,7 @@ Gradient descent:
 ⼀樣輸入測試集x,y，⽤gradient descent的算式去重複做，先算x與w矩陣相乘與實際y值的差(lost) ，並求微分過後的error function，再跟自訂的learning rate相乘，⼀次⼀次的修正theta直到找到使error最小值的w所在。經過不斷地調參與測試loss值，我決定了learning_rate=0.0000000001，gradient descent的次數總共為1000次，loss是我觀察到的最小值。 最後⼀樣，再將我準備好的validation帶入w與b並⽤用plt做圖來看我的valx,valy點，可以清楚的觀察測試資料valx對應到的預測y值以及求出的linear function。
 最後將我10/15後⼆⼗十天的stock price作為x帶入function得到輸出結果。
 Training data數量與loss function算出的loss比較: 
-根據實際測試，最後選擇⽤用loss最⼩小的OLS Regression以及60筆資料來來訓練。
+根據實際測試，最後選擇⽤用loss最⼩小的OLS Regression以及60筆資料來訓練。
 ![Variable Declaration](/mlimg/compare.png)
 * Advanced prediction:
 至於advanced的部分，我使用的是Keras的LSTM model。用TSMC每筆資料的前80天到20天的資料來訓練這⼀天的股價，最後實際使⽤時輸入前60天股價來預測下⼀天股價。第⼀步我先用MinMaxScaler做正規化到01之間，避免資料過⼤，再做numpy、 xdata的reshape處理，變成每60筆資料為一份資料集來訓練我的LSTM model。 LSTM我用128跟64⼀共⽤了兩層，中間有特別用Dropout(0.2)增加效能。 得到model之後，我將所有資料輸入model得到對應的預測y，再跟⾃己做root mean square跟mape算出loss:
