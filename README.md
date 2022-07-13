@@ -1,6 +1,4 @@
-# ML_projects
-
-## Machine Learning Algorithm Implementation
+## Machine Learning Projects Implementation
 
 ## 1. BackPropogation
 ## BackPropogation Algorithm Implementation
