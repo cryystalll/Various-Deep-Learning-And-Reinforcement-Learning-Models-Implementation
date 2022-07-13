@@ -21,9 +21,9 @@ bonus的部分，我將原本的訓練資料拆成x_train與x_val, y_val,與y_tr
 ## Method
 * Basic
 * 2022/6更新:
-原先f1score 沒達到標準應該是因為filter數太少，所以將model filter增加，改成三層分別為 32,256,256，另外增加stride為來控制萃取的大小與速度，並在最後用validation data測試 f1score是否有達標，經過測試至少可以達到0.7。
-原文：
-使用三層神經網路，filter分別為16,32,64，3x3的卷積核萃取圖片資料，中間摻雜maxpool與 dropout防止過擬合，最後將dense size合為1，因為basic的output dimension是Edema 一個 column。
+*原先f1score 沒達到標準應該是因為filter數太少，所以將model filter增加，改成三層分別為 32,256,256，另外增加stride為來控制萃取的大小與速度，並在最後用validation data測試 f1score是否有達標，經過測試至少可以達到0.7。
+*原文：
+*使用三層神經網路，filter分別為16,32,64，3x3的卷積核萃取圖片資料，中間摻雜maxpool與 dropout防止過擬合，最後將dense size合為1，因為basic的output dimension是Edema 一個 column。
 optimizer用adam，讓learning rate 可以更加平穩，因為他會保留過去的momentum和矯正 偏離，loss用binary_crossentropy，因為這是binary classification問題。
 1.原本遇到loss太⾼高，accuracy太低的問題，最後使⽤用Drop out有改善許多。
 2.要將input size 做Reshape成(10000,128,128,1)，加上最後⼀一個顏⾊色的參參數，不然size會不合沒辦法訓練模型。
