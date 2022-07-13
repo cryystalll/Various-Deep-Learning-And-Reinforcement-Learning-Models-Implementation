@@ -89,5 +89,3 @@ Training data數量與loss function算出的loss比較:
 Rsme = 14.905772239305383 
 Mape = 1.998070466413709
 可以觀察到時間序列列預測的效能明顯比basic的線性regression好很多。 接下來來實際⽤用model來來預測，⽤用iteration⼀一次丟i的前60天股價預測出第i天股價，再將預測出的股價 寫回testdata，作為下⼀一天股價的60筆預測資料中最後⼀一個最新的資料，序列列式的做完最後20天的 股價預測。
-## Final Result
-![Variable Declaration](/mlimg/stock_price_prediction_2022.png)
