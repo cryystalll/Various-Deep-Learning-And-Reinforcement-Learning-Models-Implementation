@@ -4,8 +4,8 @@
 
 ## 1. BackPropogation
 ## BackPropogation Algorithm Implementation
-![Variable Declaration](/mlimg/backp.jpeg)
-## Report
+![Variable Declaration](/mlimg/newb1.png)
+## Method
 * Basic
 * 一開始在寫initialize parameter的部分時，不太懂為什麼要用 HE initialization，後來才發現它跟準確率有很大的關係，這次從一開始就使用到大量的numpy array，也花了一些時間去熟悉語法的部分。在做activation funtion layer時，也想了一下該怎麼用比較漂亮的寫法寫條 件判斷array中個別的元素，才能避免exponential overflow。
 在L model forward中，將(wa+b)傳回linear activation forward，用sigmod讓資料介於0與1之間 來實作binary classifier，要特別注意sigmoid需要用stable function判斷大於0或小於0的情況來 避免exponential overflow。
@@ -20,7 +20,7 @@ bonus的部分，我將原本的訓練資料拆成x_train與x_val, y_val,與y_tr
 ## 2. CNN Cancer Detect
 ## Project Detect Cancer from Patients' Lungs Images
 ![Variable Declaration](/mlimg/cnn.png)
-## Report
+## Method
 * Basic
 * 2022/6更新:
 原先f1score 沒達到標準應該是因為filter數太少，所以將model filter增加，改成三層分別為 32,256,256，另外增加stride為來控制萃取的大小與速度，並在最後用validation data測試 f1score是否有達標，經過測試至少可以達到0.7。
@@ -44,7 +44,7 @@ optimizer用adam，讓learning rate 可以更加平穩，因為他會保留過�
 ## 3. Decision Tree
 ## Binary Entropy Classifier 
 ![Variable Declaration](/mlimg/tree_visualization.png)
-## Report
+## Method
 MIMIC data 預測 model:
 Top 3 splitting features and their thresholds:
 1. mvar12 <= 0.5 
@@ -60,19 +60,19 @@ Build decision tree:
 ## Reinforcement Learning from QTable and Deep Q Network
 ## Cartpole Visulization
 ![Variable Declaration](/mlimg/cartpole.gif)
-![Variable Declaration](/mlimg/qlearning.png)
-## Report
+## Method
 * Basic:
 * 先在net中建立神經網路路，包含隱藏層，並得到action的分數，第⼆步再dqn中則是建立q learning network。重要的部分兩兩個net:eval_net及target_net，其他為設定self的各個參參數值以及設定memory 保存⼤大⼩小。在choose_action中隨機學習經驗與選擇最⾼高分的action，⽽而後在store_transition中store experience。將每回的reward加起來來後，進⾏行行learn()訓練。⽽而這裡的reward有修改過，根據柱⼦子的 radius分配更更⼤大的reward，這樣的訓練效果比原本好很多。
 在調參數時遇到蠻多困難的，⾸先N_EPISODES很直觀，但有點搞不懂EPISODE_LENGTH有什麼作用，後來才知道那會影響每⼀回合的step。還有epispdes要設到3000以上效果才會比較好，設4000 跑了很久，但是更更穩定，test也成功過關。
 * Advanced - 將state-action pair存到q table中，直接從裡⾯面拿資料與更更新資料
 * 這裡的做法是將state-action pair存到q table中，直接從裡⾯面拿資料與更更新資料。在choose_action 中⽤用隨機機率學習經驗與選擇最⾼高分的action，在get_state終將連續特徵轉為離散，⽤用bucket表 ⽰示，⽽而後在下⾯面調整bucket的參參數進⾏行行訓練。列列出state範圍個參參數後，將state-action pair存到q table中，進⾏行行訓練，⼀一樣會累積reward，⽽而這裡⽤用的公式就是q learning公式，計算完成後存到 table中再繼續訓練。
-在設定state-action pair遇到蠻多困難的，試了了很久才想到要⽤用(action,)的形式，還有bucket的調 參參，第三個feature從1慢慢開始往上加訓練，發現只有6才能訓練成功。
+在設定state-action pair遇到蠻多困難的，試了了很久才想到要⽤用(action,)的形式，還有bucket的調參，第三個feature從1慢慢開始往上加訓練，發現加到6才能訓練成功。
+![Variable Declaration](/mlimg/qlearning.png)
 ## 5. Stockprice Prediction
 ## Basic method of Linear Regression 
 ## Advanced method of LSTM
 ![Variable Declaration](/mlimg/linear.jpeg)
-## Report
+## Method
 * Basic prediction
 * Regression的部分我兩種OLS,gradient都有做並分別去train，再選lost必較⼩的model來來實際丟資料進去做預測，最後我選擇OLS因為loss較⼩。一開始split data，我也分別測試了不同資料數量丟下去train會得到的lost的不同，發現⽤10/14號前 60天的資料訓練比只用最後30筆或用到最後90筆的效能還要更好，所以最後決定⽤nput_datalist[129:189]#前60天來做，最後再⽤前20天的資料當validation來測試。
 Ordinary Least Square Solution:
