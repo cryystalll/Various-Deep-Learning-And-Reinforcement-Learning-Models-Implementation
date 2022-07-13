@@ -6,7 +6,7 @@
 ## BackPropogation Algorithm Implementation
 ![Variable Declaration](/mlimg/backp.jpeg)
 ## Report
-* Basic:
+* Basic
 * 一開始在寫initialize parameter的部分時，不太懂為什麼要用 HE initialization，後來才發現它跟準確率有很大的關係，這次從一開始就使用到大量的numpy array，也花了一些時間去熟悉語法的部分。在做activation funtion layer時，也想了一下該怎麼用比較漂亮的寫法寫條 件判斷array中個別的元素，才能避免exponential overflow。
 在L model forward中，將(wa+b)傳回linear activation forward，用sigmod讓資料介於0與1之間 來實作binary classifier，要特別注意sigmoid需要用stable function判斷大於0或小於0的情況來 避免exponential overflow。
 一開始dimension跟node設比較大，但發現太多node反而cost變高，還有試過各種learning rate，發現0.01下降速度最快;將iteration次數慢慢調成10000，就可以達到很好的效果了。
@@ -21,7 +21,7 @@ bonus的部分，我將原本的訓練資料拆成x_train與x_val, y_val,與y_tr
 ## Project Detect Cancer from Patients' Lungs Images
 ![Variable Declaration](/mlimg/cnn.png)
 ## Report
-* Basic:
+* Basic
 * 2022/6更新:
 原先f1score 沒達到標準應該是因為filter數太少，所以將model filter增加，改成三層分別為 32,256,256，另外增加stride為來控制萃取的大小與速度，並在最後用validation data測試 f1score是否有達標，經過測試至少可以達到0.7。
 原文：
@@ -73,7 +73,7 @@ Build decision tree:
 ## Advanced method of LSTM
 ![Variable Declaration](/mlimg/linear.jpeg)
 ## Report
-* Basic prediction:
+* Basic prediction
 * Regression的部分我兩種OLS,gradient都有做並分別去train，再選lost必較⼩的model來來實際丟資料進去做預測，最後我選擇OLS因為loss較⼩。一開始split data，我也分別測試了不同資料數量丟下去train會得到的lost的不同，發現⽤10/14號前 60天的資料訓練比只用最後30筆或用到最後90筆的效能還要更好，所以最後決定⽤nput_datalist[129:189]#前60天來做，最後再⽤前20天的資料當validation來測試。
 Ordinary Least Square Solution:
 先將我引入的x data轉成numpy形式，並添加⼀行都是1的vector，因為w會有k+1項，必須要符合那個shape，同時把x與y都增加⼀一維，接著帶入Ordinary Least Square Solution公式計算出我linear regression的weight與bias。
@@ -84,7 +84,7 @@ Gradient descent:
 Training data數量與loss function算出的loss比較: 
 根據實際測試，最後選擇⽤用loss最⼩小的OLS Regression以及60筆資料來訓練。
 ![Variable Declaration](/mlimg/compare.png)
-* Advanced prediction:
+* Advanced prediction
 至於advanced的部分，我使用的是Keras的LSTM model。用TSMC每筆資料的前80天到20天的資料來訓練這⼀天的股價，最後實際使⽤時輸入前60天股價來預測下⼀天股價。第⼀步我先用MinMaxScaler做正規化到01之間，避免資料過⼤，再做numpy、 xdata的reshape處理，變成每60筆資料為一份資料集來訓練我的LSTM model。 LSTM我用128跟64⼀共⽤了兩層，中間有特別用Dropout(0.2)增加效能。 得到model之後，我將所有資料輸入model得到對應的預測y，再跟⾃己做root mean square跟mape算出loss:
 Rsme = 14.905772239305383 
 Mape = 1.998070466413709
