@@ -1,7 +1,9 @@
 ## Machine Learning Projects Implementation
 
 ## 1. BackPropogation
-* BackPropogation Algorithm Implementation
+```
+BackPropogation Algorithm Implementation
+```
 <div align=center><img src="/mlimg/newb1.png" alt="Cover" width="30%"/></div>
 
 ## Method
@@ -21,7 +23,9 @@ bonus的部分，我將原本的訓練資料拆成x_train與x_val, y_val,與y_tr
 ```
 
 ## 2. CNN Cancer Detect
-* Project Detect Cancer from Patients' Lungs Images
+```
+Project Detect Cancer from Patients' Lungs Images
+```
 <div align=center><img src="/mlimg/cnn.png" alt="Cover" width="40%"/></div>
 
 ## Method
@@ -53,7 +57,9 @@ optimizer用adam，讓learning rate 可以更加平穩，因為他會保留過�
 根據以上注意事項將x_train y_train reshape調整input size後輸入神經網路模型中萃取圖片資料，訓練後再將test資料輸入模型得到output預測結果並印出csv檔案。這部分跟basic不同的是輸出的維度為7，有7個label。
 ```
 ## 3. Decision Tree
-* Binary Entropy Classifier 
+```
+Binary Entropy Classifier 
+```
 <div align=center><img src="/mlimg/tree_visualization.png" alt="Cover" width="70%"/></div>
 
 ## Method
