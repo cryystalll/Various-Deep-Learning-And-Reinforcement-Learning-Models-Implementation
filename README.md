@@ -60,7 +60,7 @@ optimizer用adam，讓learning rate 可以更加平穩，因為他會保留過�
 ```
 Binary Entropy Classifier 
 ```
-<div align=center><img src="/mlimg/tree_visualization.png" alt="Cover" width="70%"/></div>
+<div align=center><img src="/mlimg/tree_visualization.png" alt="Cover" width="75%"/></div>
 
 ## Method
 * MIMIC data 預測 model
@@ -103,7 +103,7 @@ Top 3 splitting features and their thresholds:
 Basic method of Linear Regression 
 Advanced method of LSTM
 ```
-<div align=center><img src="/mlimg/linear.jpeg" alt="Cover" width="30%"/></div>
+<div align=center><img src="/mlimg/linear.jpeg" alt="Cover" width="40%"/></div>
 
 ## Method
 * Basic prediction
