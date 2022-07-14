@@ -1,7 +1,7 @@
 ## Machine Learning Projects Implementation
 
 ## 1. BackPropogation
-## BackPropogation Algorithm Implementation
+* BackPropogation Algorithm Implementation
 <div align=center><img src="/mlimg/newb1.png" alt="Cover" width="30%"/></div>
 
 ## Method
@@ -21,7 +21,7 @@ bonus的部分，我將原本的訓練資料拆成x_train與x_val, y_val,與y_tr
 ```
 
 ## 2. CNN Cancer Detect
-## Project Detect Cancer from Patients' Lungs Images
+* Project Detect Cancer from Patients' Lungs Images
 <div align=center><img src="/mlimg/cnn.png" alt="Cover" width="40%"/></div>
 
 ## Method
@@ -53,7 +53,7 @@ optimizer用adam，讓learning rate 可以更加平穩，因為他會保留過�
 根據以上注意事項將x_train y_train reshape調整input size後輸入神經網路模型中萃取圖片資料，訓練後再將test資料輸入模型得到output預測結果並印出csv檔案。這部分跟basic不同的是輸出的維度為7，有7個label。
 ```
 ## 3. Decision Tree
-## Binary Entropy Classifier 
+* Binary Entropy Classifier 
 <div align=center><img src="/mlimg/tree_visualization.png" alt="Cover" width="70%"/></div>
 
 ## Method
@@ -73,8 +73,10 @@ Top 3 splitting features and their thresholds:
 5.import x_test 得到預測的 y_pred
 ```
 ## 4. Q Reinforcement Learning
-## Reinforcement Learning from QTable and Deep Q Network
-## Cartpole Visulization
+```
+* Reinforcement Learning from QTable and Deep Q Network
+* Cartpole Visulization
+```
 <div align=center><img src="/mlimg/cartpole.gif" alt="Cover" width="60%"/></div>
 
 ## Method
@@ -83,7 +85,7 @@ Top 3 splitting features and their thresholds:
 先在net中建立神經網路路，包含隱藏層，並得到action的分數，第⼆步再dqn中則是建立q learning network。重要的部分兩兩個net:eval_net及target_net，其他為設定self的各個參參數值以及設定memory 保存⼤大⼩小。在choose_action中隨機學習經驗與選擇最⾼高分的action，⽽而後在store_transition中store experience。將每回的reward加起來來後，進⾏行行learn()訓練。⽽而這裡的reward有修改過，根據柱⼦子的 radius分配更更⼤大的reward，這樣的訓練效果比原本好很多。
 在調參數時遇到蠻多困難的，⾸先N_EPISODES很直觀，但有點搞不懂EPISODE_LENGTH有什麼作用，後來才知道那會影響每⼀回合的step。還有epispdes要設到3000以上效果才會比較好，設4000 跑了很久，但是更更穩定，test也成功過關。
 ```
-* Advanced - 將state-action pair存到q table中，直接從裡⾯面拿資料與更更新資料
+* Advanced - 將state-action pair存到q table中，直接由table拿取與更新資料
 ```
 這裡的做法是將state-action pair存到q table中，直接從裡⾯面拿資料與更更新資料。在choose_action 中⽤用隨機機率學習經驗與選擇最⾼高分的action，在get_state終將連續特徵轉為離散，⽤用bucket表 ⽰示，⽽而後在下⾯面調整bucket的參參數進⾏行行訓練。列列出state範圍個參參數後，將state-action pair存到q table中，進⾏行行訓練，⼀一樣會累積reward，⽽而這裡⽤用的公式就是q learning公式，計算完成後存到 table中再繼續訓練。
 在設定state-action pair遇到蠻多困難，使用(action,)的形式會較好，還有bucket的調參，第三個feature從1慢慢開始往上試驗到6。
